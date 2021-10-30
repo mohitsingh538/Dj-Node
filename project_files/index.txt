@@ -1,0 +1,26 @@
+const express = require("express");
+const app = express();
+const path = require("path");
+require('dotenv').config()
+const env_vars = process.env;
+
+app.use(express.static(path.join(__dirname, "static")));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.listen(env_vars.API_PORT, () => {
+  console.log(`server started on port ${env_vars.API_PORT}`);
+});
