@@ -53,7 +53,7 @@ if int(version) > 1000:
                 with open("package.json", "r") as pkg_file:  # Editing path in package.json
                     data = json.load(pkg_file)
 
-                data["main"] = f"./{proj_name}/manage.js"
+                data["main"] = "manage.js"
 
                 with open("package.json", "w") as pkg_file:
                     json.dump(data, pkg_file, indent=2)
