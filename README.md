@@ -52,7 +52,8 @@ And, your console will show this:
 Development server started at http://127.0.0.1:3000
 ```
 Here's how your default homepage will look like:
-![Django-Express default page](https://i.ibb.co/GpzpWZ2/django-express.png)
+
+<img src="https://i.ibb.co/GpzpWZ2/django-express.png" width="100%" />
 
 Don't forget to add your 'apps' in project_name/settings.js file. If you add an app named '***home***', add it here:
 ```bash
