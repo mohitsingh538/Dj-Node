@@ -1,5 +1,5 @@
 
-## Dj-Node - Django-like ExpressJS structure
+## Dj-Node: Django-like ExpressJS project structure
 
 
 ### Introduction
