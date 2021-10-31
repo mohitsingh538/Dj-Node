@@ -1,6 +1,7 @@
 const CONFIG = { INSTALLED_APPS:
         [
             'users',
+            'home'
         ]
 }
 

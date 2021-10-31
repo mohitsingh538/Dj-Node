@@ -4,6 +4,7 @@ import re
 import shutil
 import subprocess
 import pathlib
+import webbrowser
 
 getVersion = subprocess.Popen("node -v", shell=True, stdout=subprocess.PIPE).stdout
 check_v = getVersion.read().decode('utf-8')
@@ -21,11 +22,10 @@ if int(version) > 1000:
                 os.chdir(proj_name)
 
                 #   Creating necessary DIRs & files
-                os.system(f'''npm init -y && mkdir static templates {proj_name} users users/templates''')
-                os.system(f"touch manage.js users/views.js")
+                os.system(f'''npm init -y && touch manage.js && mkdir {proj_name}''')
 
                 #   Installing Express & other necessary packages
-                os.system("npm i express --save && npm i dotenv && npm install nodemon -D && touch .env")
+                os.system("npm i express ejs dotenv && npm i nodemon -D && touch .env")
 
                 with open(".env", "w") as env_f:
                     env_f.write("API_PORT=3000")
@@ -36,7 +36,7 @@ if int(version) > 1000:
 
                 with open(f"manage.js", "w") as manage_f:  # Editing manage.js files
                     lines = open(manage_file, "r").readlines()
-                    lines.insert(5, f"const settings = require('./{proj_name}/settings')")
+                    lines.insert(5, f"const settings = require('./{proj_name}/settings')\n")
                     manage_f.writelines(lines)
 
                 manage_f.close()
@@ -44,11 +44,17 @@ if int(version) > 1000:
                 settings_file = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/settings.js")  # Copying settings.js file
                 shutil.copyfile(settings_file, f"{os.getcwd()}/{proj_name}/settings.js")
 
-                urls_file = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/users/urls.js")   # Copying urls.js file
-                shutil.copyfile(urls_file, f"{os.getcwd()}/users/urls.js")
+                users_dir = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/users")    # Copying users directory
+                shutil.copytree(users_dir, f"{os.getcwd()}/users/")
 
-                urls_file = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/users/sign-in.ejs")  # Copying sign-in file
-                shutil.copyfile(settings_file, f"{os.getcwd()}/users/templates/sign-in.ejs")
+                home_dir = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/home")  # Copying home directory
+                shutil.copytree(home_dir, f"{os.getcwd()}/home/")
+
+                static_dir = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/static")  # Copying static directory
+                shutil.copytree(static_dir, f"{os.getcwd()}/static/")
+
+                templates_dir = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/templates")    # Copying templates directory
+                shutil.copytree(templates_dir, f"{os.getcwd()}/templates/")
 
                 with open("package.json", "r") as pkg_file:  # Editing path in package.json
                     data = json.load(pkg_file)
@@ -59,6 +65,7 @@ if int(version) > 1000:
                     json.dump(data, pkg_file, indent=2)
 
                 os.system("nodemon manage.js")  # Starting server with nodemon
+                webbrowser.open('http://127.0.0.1:3000')
 
             else:
                 raise Exception("Another project with the same name already exists.")
