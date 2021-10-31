@@ -1,5 +1,5 @@
 
-## Dj-Node: Django-like ExpressJS project structure
+## Django-ExpressJS: Creates Django-like ExpressJS project
 
 
 ### Introduction
