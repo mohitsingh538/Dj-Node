@@ -1,5 +1,5 @@
 
-## Dj-Node - Django-like ExpressJS structure
+## Dj-Node: Django-like ExpressJS project structure
 
 
 ### Introduction
@@ -34,18 +34,17 @@ Name this project: Express_site
 #### Once the installation is complete, your structure project should look like this:
 
 ```
-|-- html
-	|-- Express_site
-	    |-- manage.js
-	    |-- Express_site
-		    |-- settings.js
-		    
-	    |-- templates
-	    |-- static
-	    |-- package.json
-	    |-- package-lock.json
-	    |-- node_modules
-	    |-- users
+|-- Express_site
+    |-- manage.js
+    |-- Express_site
+	    |-- settings.js
+
+    |-- templates
+    |-- static
+    |-- package.json
+    |-- package-lock.json
+    |-- node_modules
+    |-- users
 ```
 
 And, your console will show this:
