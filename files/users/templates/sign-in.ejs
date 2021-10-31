@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign In</title>
+</head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+<style>
+	body {
+	  background: #007bff;
+	  background: linear-gradient(to right, #0062E6, #33AEFF);
+	}
+
+	.fira-font {
+		font-family: 'Fira Sans', sans-serif;
+	}
+
+	.source-font {
+		font-family: 'Source Sans Pro', sans-serif;
+	}
+
+	.btn-login {
+	  font-size: 0.9rem;
+	  letter-spacing: 0.05rem;
+	  padding: 0.75rem 1rem;
+	}
+
+	.btn-google {
+	  color: white !important;
+	  background-color: #ea4335;
+	}
+
+	.btn-facebook {
+	  color: white !important;
+	  background-color: #3b5998;
+	}
+
+</style>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5 fira-font">Sign In</h5>
+            <form>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput" class="source-font">Email address</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword" class="source-font">Password</label>
+              </div>
+
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                <label class="form-check-label source-font" for="rememberPasswordCheck">
+                  Remember password
+                </label>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold fira-font" type="submit">Sign
+                  in</button>
+              </div>
+              <hr class="my-4">
+              <div class="d-grid mb-2">
+                <button class="btn btn-google btn-login text-uppercase fw-bold fira-font" type="submit">
+                  <i class="fab fa-google me-2"></i> Sign in with Google
+                </button>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-facebook btn-login text-uppercase fw-bold fira-font" type="submit">
+                  <i class="fab fa-facebook-f me-2"></i> Sign in with Facebook
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

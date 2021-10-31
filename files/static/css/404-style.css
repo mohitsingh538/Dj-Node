@@ -6,6 +6,10 @@ body {
   background: linear-gradient(90deg, #2f3640 23%, #181b20 100%);
 }
 
+.fira-font {
+  font-family: 'Fira Sans', sans-serif;
+}
+
 .moon {
   background: linear-gradient(90deg, #d0d0d0 48%, #919191 100%);
   position: absolute;
@@ -106,7 +110,6 @@ body {
   left: 100px;
   top: 400px;
   transform: translateY(-60%);
-  font-family: "Righteous", cursive;
   color: #363e49;
 }
 
@@ -115,7 +118,7 @@ body {
 }
 
 .error__subtitle {
-  font-size: 2em;
+  font-size: 1.2em;
 }
 
 .error__description {
@@ -135,7 +138,6 @@ body {
   cursor: pointer;
   transition-duration: 0.2s;
   font-size: 0.75em;
-  font-family: "Righteous", cursive;
 }
 
 .error__button:hover {
