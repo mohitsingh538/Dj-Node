@@ -3,7 +3,6 @@ const app = express();
 const path = require("path");
 require('dotenv').config()
 const env_vars = process.env;
-const createError = require('http-errors');
 
 
 app.set('port', env_vars.API_PORT);
