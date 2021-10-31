@@ -32,14 +32,8 @@ if int(version) > 1000:
 
                 env_f.close()
 
-                manage_file = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/manage.txt")
-
-                with open(f"manage.js", "w") as manage_f:  # Editing manage.js files
-                    lines = open(manage_file, "r").readlines()
-                    lines.insert(5, f"const settings = require('./{proj_name}/settings')\n")
-                    manage_f.writelines(lines)
-
-                manage_f.close()
+                manage_file = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/manage.js")
+                shutil.copyfile(manage_file, f"{os.getcwd()}/manage.js")
 
                 settings_file = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/settings.js")  # Copying settings.js file
                 shutil.copyfile(settings_file, f"{os.getcwd()}/{proj_name}/settings.js")
@@ -56,6 +50,13 @@ if int(version) > 1000:
                 templates_dir = os.path.join(pathlib.Path(__file__).parent.resolve(), "files/templates")    # Copying templates directory
                 shutil.copytree(templates_dir, f"{os.getcwd()}/templates/")
 
+                with open(f"manage.js", "w") as manage_f:  # Editing manage.js files
+                    lines = open(manage_file, "r").readlines()
+                    lines.insert(5, f"const settings = require('./{proj_name}/settings')\n")
+                    manage_f.writelines(lines)
+                    
+                manage_f.close()
+
                 with open("package.json", "r") as pkg_file:  # Editing path in package.json
                     data = json.load(pkg_file)
 
@@ -65,7 +66,6 @@ if int(version) > 1000:
                     json.dump(data, pkg_file, indent=2)
 
                 os.system("nodemon manage.js")  # Starting server with nodemon
-                webbrowser.open('http://127.0.0.1:3000')
 
             else:
                 raise Exception("Another project with the same name already exists.")
