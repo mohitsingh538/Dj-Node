@@ -4,7 +4,6 @@ import re
 import shutil
 import subprocess
 import pathlib
-import webbrowser
 
 getVersion = subprocess.Popen("node -v", shell=True, stdout=subprocess.PIPE).stdout
 check_v = getVersion.read().decode('utf-8')
