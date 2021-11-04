@@ -67,8 +67,6 @@ const CONFIG = { INSTALLED_APPS:
 module.exports.config = CONFIG;
 ```
 
-I will soon be adding a homepage and a login page. 
-
 *Contributions would be appreciated.*
 
 **Issues should be raised directly in the repository.**
